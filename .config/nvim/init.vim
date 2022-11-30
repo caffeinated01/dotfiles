@@ -12,7 +12,6 @@ nnoremap <C-g> :NERDTreeToggle<CR>
 nnoremap <C-t> :tabnew <CR>:NERDTree<CR>
 nnoremap <C-Delete> :tabclose<CR>
 nnoremap <C-x> :rightbelow new<CR>:terminal<CR>:resize 10<CR>
-nnoremap <C-h> :rightbelow new ~/.config/nvim/keybinds.txt<CR>:resize 6<CR>
 nnoremap <C-c> :tabn <CR>
 nnoremap <C-a> :set wrap <CR> :set linebreak <CR>
 nnoremap <C-o> :set nowrap <CR> :set linebreak <CR>
