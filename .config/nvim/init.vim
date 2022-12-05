@@ -18,6 +18,13 @@ call plug#end()
 set encoding=UTF-8
 
 "Keybinds
+
+"Tabs
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabc<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-k> :tabp<CR>
+
 "Nerdtree
 nnoremap <C-m> :NERDTreeToggle<CR>
 
