@@ -19,8 +19,6 @@ set encoding=UTF-8
 
 "Keybinds
 "Nerdtree
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-l> :NERDTreeToggle<CR>
+nnoremap <C-m> :NERDTreeToggle<CR>
 
 :colorscheme catppuccin
