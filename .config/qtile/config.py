@@ -50,7 +50,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod, "shift"], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -63,7 +63,7 @@ keys = [
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod,"shift"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -133,15 +133,15 @@ catppuccin = {
 }
 
 layouts = [
-    layout.MonadTall(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 20),
+    layout.Bsp(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 25),
+    layout.MonadTall(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 25),
+    layout.MonadWide(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 25),
+    layout.RatioTile(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 25),
+    layout.Max(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 25),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 20),
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadWide(),
-    layout.RatioTile(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 20)
-    # layout.Tile(),
+    layout.Tile(border_focus = "62AEEFFF", border_normal = "62AEEFFF", border_width = 2, margin = 25),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -185,64 +185,98 @@ def get_widgets(primary=False):
             ),
         widget.WindowName(
             fontsize=20,
-            foreground=catppuccin["mauve"],
+            foreground=catppuccin["flamingo"],
             background=catppuccin["dark"],
             ),
-        widget.CurrentLayout(
-            fontsize=20,
-            foreground=catppuccin["white"],
-            background=catppuccin["dark"],
-            padding=20,
-            ) ,
         widget.Systray(
             padding=8,
             background = catppuccin["dark"]
-            ),
+            ),    
         widget.Sep(
             linewidth = 0,
             padding = 10,
             size_percent = 30,
             foreground = catppuccin["dark"],
             background = catppuccin["dark"]
+            ), 
+        widget.Sep(
+            linewidth = 0,
+            padding = 10,
+            size_percent = 30,
+            foreground = catppuccin["teal"],
+            background = catppuccin["teal"]
+            ),
+        widget.TextBox(
+            text=' ',
+            background=catppuccin["teal"],
+            foreground=catppuccin["black"],
+            padding=0 
+            ),
+         widget.CurrentLayout(
+            fontsize=20,
+            foreground=catppuccin["black"],
+            background=catppuccin["teal"],
+            padding=10,
+            ), 
+        widget.Sep(
+            linewidth = 0,
+            padding = 10,
+            size_percent = 30,
+            foreground = catppuccin["mauve"],
+            background = catppuccin["mauve"]
             ),
         widget.Battery(
             charge_char ='',
             discharge_char = '',
             format = '  {percent:2.0%} {char}',
-            foreground = catppuccin["mauve"],
-            background = catppuccin["dark"],
+            foreground = catppuccin["black"],
+            background = catppuccin["mauve"],
             padding = 8,
             ),
         widget.Sep(
             linewidth = 0,
             padding = 10,
             size_percent = 30,
-            foreground = catppuccin["dark"],
-            background = catppuccin["dark"]
+            foreground = catppuccin["mauve"],
+            background = catppuccin["mauve"]
+            ),
+        widget.Sep(
+            linewidth = 0,
+            padding = 10,
+            size_percent = 30,
+            foreground = catppuccin["peach"],
+            background = catppuccin["peach"]
             ),
         widget.CPU(
             format=" {load_percent:04}%",
-            foreground=catppuccin["peach"],
-            background=catppuccin["dark"],
+            foreground=catppuccin["dark"],
+            background=catppuccin["peach"],
             ),
         widget.Sep(
             linewidth = 0,
             padding = 10,
             size_percent = 30,
-            foreground = catppuccin["dark"],
-            background = catppuccin["dark"]
+            foreground = catppuccin["peach"],
+            background = catppuccin["peach"]
+            ),
+        widget.Sep(
+            linewidth = 0,
+            padding = 10,
+            size_percent = 30,
+            foreground = catppuccin["maroon"],
+            background = catppuccin["maroon"]
             ),
         widget.Clock(
             format=" %I:%M %p",
-            foreground=catppuccin["maroon"],
-            background=catppuccin["dark"],
+            foreground=catppuccin["black"],
+            background=catppuccin["maroon"],
             ),
         widget.Sep(
             linewidth = 0,
-            padding = 10,
+            padding = 5,
             size_percent = 30,
-            foreground = catppuccin["dark"],
-            background = catppuccin["dark"]
+            foreground = catppuccin["maroon"],
+            background = catppuccin["maroon"]
             ),
         ]
     return widgets
@@ -252,7 +286,7 @@ screens = [
         top=bar.Bar(
             get_widgets(primary=True),
             22,
-            margin=3,
+            margin=0,
             background=catppuccin["dark"],
         ),
     ),
