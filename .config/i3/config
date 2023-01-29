@@ -214,6 +214,6 @@ gaps outer 20px
 
 exec_always feh --bg-fill $HOME/.config/i3/wall.png
 exec_always picom -b  --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350
-
+exec_always xrandr --output DP-3 --mode 3840x2160 --rate 144x
 
 
