@@ -1,2 +1,2 @@
 # dotfiles
-adding a new i3 config soon
+bar configs coming soon
